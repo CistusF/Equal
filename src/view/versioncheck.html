@@ -21,9 +21,9 @@
                     document.getElementById('stat').innerText = "Check the program version..";
                     request.get('https://raw.githubusercontent.com/vendettadelsangue/Equal/master/src/data/data.json', async (err, res, req) => {
                         if (err) return alert(`An error has occurred.\nPlease report the following to the administrator\n\n${err}`);
-                        if (req.version == version) return window.location = './main.html';
+                        if (JSON.parse(req).version == version.version) return window.location = './main.html';
                         document.getElementById("stat").innerText = "Updating..";
-                        await fs.writeFileSync('./data/data.json', req);
+                        await fs.writeFileSync('./resources/app/data/data.json', req);
                         alert('Succese to update');
                         window.location = './main.html';
                     })
