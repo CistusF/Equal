@@ -1,7 +1,7 @@
 {
-  "name": "calculator",
+  "name": "equal",
   "version": "1.0.0",
-  "description": "Calculator using HTML and Node.js",
+  "description": "Quiz program for korean student",
   "main": "index.js",
   "scripts": {
     "start": "electron index.js"
