@@ -1,6 +1,6 @@
 {
   "name": "equal",
-  "version": "1.0.0",
+  "version": "Alpha",
   "description": "Quiz program for korean student",
   "main": "index.js",
   "scripts": {
