@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Main menu</title>
     <style>
         * {
             text-align: center;
@@ -26,6 +25,11 @@
             margin: 20px
         }
 
+        .openwfilebtn {
+            font-size: 0.8cm;
+            margin: 20px
+        }
+
         .description {
             font-size: 0.7cm;
             margin: 20px;
@@ -38,6 +42,9 @@
         quit = () => {
             window.close()
         }
+        openwfile = () => {
+            window.location = "./words.html"
+        }
     </script>
 </head>
 
@@ -47,7 +54,8 @@
     </h1>
     <label class="description">The game to be the wordmaster</label><br>
     <input class="startbtn" id="start" type="button" value="Start" onclick="start()">
-    <input class="quitbtn" id="quit" type="button" value="Quit" onclick="quit()"><br>
+    <input class="quitbtn" id="quit" type="button" value="Quit" onclick="quit()">
+    <input class="openwfilebtn" id="openwfile" type="button" value="Open Word File" onclick="openwfile()">
 </body>
 
 </html>
