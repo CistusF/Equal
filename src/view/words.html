@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Words</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #bcbcbc;
+        }
+    </style>
+    <script>
+        const version = require('../data/data.json');
+        load = () => {
+            version.list.forEach(w => {
+                document.getElementById('list').innerHTML += `<tr><th>${w.quiz}</th><td>${w.answer}</td></tr>`
+            })
+        }
+    </script>
+</head>
+
+<body onload="load()">
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Mean</th>
+                </tr>
+            </thead>
+            <tbody id="list">
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>
