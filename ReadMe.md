@@ -23,4 +23,4 @@ Ingame
   
 ## Developers
   
-[천마[Vendetta]](https://github.com/vendettadelsangue) | [Cellary]
+[천마[Vendetta]](https://github.com/vendettadelsangue) | [Cellary](https://github.com/MiRoro2)
