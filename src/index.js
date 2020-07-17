@@ -22,7 +22,7 @@ function createWindow() {
   win.on('closed', () => {
     app.quit();
   });
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools(); for Developers
 };
 Menu.setApplicationMenu(null);
 
