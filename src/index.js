@@ -24,7 +24,7 @@ function createWindow() {
     app.quit()
     win = null
   })
-  // win.webContents.openDevTools() for Developers
+  win.webContents.openDevTools()
 }
 Menu.setApplicationMenu(null);
 

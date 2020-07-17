@@ -1,0 +1,12 @@
+{
+    "list": [
+        {
+            "quiz": "help",
+            "answer": "도움"
+        },
+        {
+            "quiz": "win",
+            "answer": "승리"
+        }
+    ]
+}

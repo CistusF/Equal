@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equal!</title>
+    <style>
+        * {
+            text-align: center;
+            font-family: Agency FB;
+        }
+
+        .Giventitle {
+            font-size: 3cm;
+            margin: 20px;
+        }
+
+        .Giventitle2 {
+            font-size: 1cm;
+        }
+
+        .Input {
+            margin: 1cm;
+            font-size: 0.5cm;
+        }
+
+        .Question {
+            font-size: 0.7cm;
+            color: gray;
+        }
+
+        .buttons {
+            padding: "10px";
+        }
+    </style>
+    <script>
+        var list = []
+        var data = require('../data/data.json')
+        let quiznumber;
+        random = () => {
+            return Math.floor((Math.random() * data.list.length - 1) + 1);
+        }
+        reload = () => {
+            load()
+        }
+        load = () => {
+            if (list.length == data.list.length) {
+                alert("[Perfect]\n\nGame end")
+                window.location = './index.html'
+                return;
+            }
+            quiznumber = random()
+            if (!list.includes(quiznumber)) {
+                document.getElementById('Q').innerText = data.list[quiznumber].quiz
+            } else {
+                reload()
+            }
+        }
+        get = () => {
+            if (document.getElementById("A").value == data.list[quiznumber].answer) {
+                list.push(quiznumber)
+                document.getElementById("A").value = null
+                load()
+            } else {
+                alert(`Wrong\nanswer is : ${data.list[quiznumber].answer}`)
+                window.location = './index.html'
+            }
+        }
+    </script>
+</head>
+
+<body onload="load()">
+    <h1 class="Giventitle">
+        Equal!
+    </h1>
+    <label class="Giventitle2">Write the answer below.</label>
+    <p>
+        <input type="text" size="100cm" class="Input" id="A">
+    </p>
+    <p>
+        <labal class="Question" id="Q"><br>
+            Here will be the question!
+        </labal>
+    </p>
+    <p>
+    <div class="buttons">
+        <button type="button" onclick="get()">Ver</button>
+    </div>
+    </p>
+</body>
+
+</html>
