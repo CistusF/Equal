@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path')
 const url = require('url');
+app.allowRendererProcessReuse = true;
+
 let win;
 const paths = path.join
 function createWindow() {
@@ -14,7 +16,7 @@ function createWindow() {
     resizable: false
   });
   win.loadURL(url.format({
-    pathname: paths(__dirname, './view/index.html'),
+    pathname: paths(__dirname, './view/versioncheck.html'),
     protocol: 'file:',
     slashes: false
   }));
@@ -22,7 +24,7 @@ function createWindow() {
   win.on('closed', () => {
     app.quit();
   });
-  // win.webContents.openDevTools(); for Developers
+  win.webContents.openDevTools();
 };
 Menu.setApplicationMenu(null);
 

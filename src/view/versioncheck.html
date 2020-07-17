@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Version Check</title>
+</head>
+
+<body>
+    <script>
+        const dns = require('dns');
+        const request = require('request');
+        const fs = require('fs');
+        function check() {
+            dns.resolve('www.github.com', function (err, addr) {
+                if (err) {
+                    alert("Network is not connected\nUpdates cannot be loaded\nSome words may be missing\nIf you want to update, please reboot after connecting to the network.\n\nSwitch to offline mode.");
+                    window.location = './main.html'
+                } else {
+                    const version = require('../data/data.json');
+                    document.getElementById('stat').innerText = "Check the program version..";
+                    request.get('https://raw.githubusercontent.com/vendettadelsangue/Equal/master/src/data/data.json', async (err, res, req) => {
+                        if (err) return alert(`An error has occurred.\nPlease report the following to the administrator\n\n${err}`);
+                        if (req.version == version) return window.location = './main.html';
+                        document.getElementById("stat").innerText = "Updating..";
+                        await fs.writeFileSync('./data/data.json', req);
+                        alert('Succese to update');
+                        window.location = './main.html';
+                    })
+                };
+            });
+        };
+        check()
+    </script>
+    <h1>
+        <p id="stat">
+            Check the network...
+        </p>
+        <p>
+            Please wait
+        </p>
+    </h1>
+</body>
+
+</html>
