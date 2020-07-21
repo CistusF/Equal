@@ -3,40 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ingame.css">
     <title>Equal!</title>
-    <style>
-        * {
-            text-align: center;
-            font-family: Agency FB;
-        }
-
-        .Giventitle {
-            font-size: 3cm;
-            margin: 20px;
-        }
-
-        .Giventitle2 {
-            font-size: 1cm;
-        }
-
-        .Input {
-            margin: 1cm;
-            font-size: 0.5cm;
-        }
-
-        .Question {
-            font-size: 0.7cm;
-            color: gray;
-        }
-
-        .buttons {
-            padding: "10px";
-        }
-    </style>
     <script>
         var list = []
         var data = require('../data/data.json')
+        const { dialog } = require('electron').remote
         let quiznumber;
         random = () => {
             return Math.floor((Math.random() * data.list.length - 1) + 1);
@@ -47,7 +19,7 @@
         load = () => {
             if (list.length == data.list.length) {
                 alert("[Perfect]\n\nGame end")
-                window.location = './index.html'
+                window.location = './main.html'
                 return;
             }
             quiznumber = random()
@@ -58,13 +30,16 @@
             }
         }
         get = () => {
-            if (document.getElementById("A").value == data.list[quiznumber].answer) {
+            if (data.list[quiznumber].answer.includes(document.getElementById("A").value)) {
                 list.push(quiznumber)
                 document.getElementById("A").value = null
                 load()
             } else {
+                dialog.showMessageBoxSync([window], {
+                    
+                })
                 alert(`Wrong\nThe correct answer is : ${data.list[quiznumber].answer}`)
-                window.location = './index.html'
+                window.location = './main.html'
             }
         }
     </script>
@@ -76,7 +51,7 @@
     </h1>
     <label class="Giventitle2">Write the answer below.</label>
     <p>
-        <input type="text" size="80" class="Input" id="A">
+        <input type="text" style="width: 30vh;" class="Input" id="A">
     </p>
     <p>
         <labal class="Question" id="Q"><br>
