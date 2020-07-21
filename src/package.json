@@ -2,13 +2,13 @@
   "name": "equal",
   "version": "0.0.1",
   "description": "Quiz program for korean student",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron index.js"
   },
   "author": "천마 | Cellary",
   "license": "GPL 3.0",
-  "devDependencies": {
+  "dependencies": {
     "electron": "^8.2.1"
   }
 }
