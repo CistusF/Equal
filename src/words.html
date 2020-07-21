@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Words</title>
+    <link rel="stylesheet" href="words.css">
+    <script>
+        const data = require('../data/data.json');
+        load = () => {
+            document.getElementById('list').innerHTML = ''
+            data.list.forEach(w => {
+                document.getElementById('list').innerHTML += `<tr><td>${w.quiz}</td><td>${w.answer}</td></tr>`
+            })
+        }
+        search = () => {
+            let list = ''
+            if (!document.getElementById("text").value) return load()
+            let find = data.list.find(i => i.quiz.includes(document.getElementById("text").value))
+            if (!find) return;
+            data.list.forEach(l => {
+                if(l.quiz.includes(document.getElementById("text").value)) return list += `<tr><td>${l.quiz}</td><td>${l.answer}</td></tr>`
+            })
+            document.getElementById('list').innerHTML = list
+        }
+    </script>
+</head>
+
+<body onload="load()">
+    <div class="Wordsform">
+    <div style="float: right;">
+        <div class="search">
+        Search <input id="text" type="text" onkeyup="search()" />
+        </div>
+    </div>
+    <center>
+        <div class="tableitem">
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Mean</th>
+                </tr>
+            </thead>
+            <tbody id="list">
+                
+            </tbody>
+        </table>
+    </div>
+    </center>
+    <input type="button" value="Back"  class="bbtn" onclick="window.location = './main.html'">
+    </div>
+</body>
+
+</html>
