@@ -4,37 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Main menu</title>
-    <style>
-        * {
-            text-align: center;
-            font-family: Agency FB;
-        }
-
-        .Indextitle {
-            font-size: 3cm;
-            margin: 20px;
-        }
-
-        .startbtn {
-            font-size: 0.8cm;
-            margin: 20px
-        }
-
-        .quitbtn {
-            font-size: 0.8cm;
-            margin: 20px
-        }
-
-        .openwfilebtn {
-            font-size: 0.8cm;
-            margin: 20px
-        }
-
-        .description {
-            font-size: 0.7cm;
-            margin: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="mainstyle.css">
     <script>
         start = () => {
             window.location = "./ingame.html"
@@ -49,13 +19,22 @@
 </head>
 
 <body>
-    <h1 class="Indextitle">
-        Equal!
-    </h1>
-    <label class="description">The game to be the wordmaster</label><br>
-    <input class="startbtn" id="start" type="button" value="Start" onclick="start()">
-    <input class="quitbtn" id="quit" type="button" value="Quit" onclick="quit()">
-    <input class="openwfilebtn" id="openwfile" type="button" value="Open Word File" onclick="openwfile()">
+    <div class="Indexform">
+        <h1>
+            EQUAL!
+        </h1>
+        <div class="description">
+            The game to be the WORDMASTER
+        </div>
+        <div>
+            <input class="buttons" id="start" type="button" value="Start" onclick="start()">
+            <input class="buttons" id="quit" type="button" value="Quit" onclick="quit()">
+            <input class="buttons" id="openwfile" type="button" value="Open Word File" onclick="openwfile()">
+        </div>
+        <div class="bottom-text">
+            copyrightⓒ Vendetta & Cellary
+        </div>
+    </div>
 </body>
 
 </html>
