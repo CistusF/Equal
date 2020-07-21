@@ -12,7 +12,8 @@
         const dns = require('dns');
         const request = require('request');
         const fs = require('fs');
-        function check() {
+        async function check() {
+
             dns.resolve('www.github.com', async function (err, addr) {
                 if (err) {
                     alert("Network is not connected\nUpdates cannot be loaded\nSome words may be missing\nIf you want to update, please reboot after connecting to the network.\n\nSwitch to offline mode.");
