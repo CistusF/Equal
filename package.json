@@ -10,5 +10,8 @@
   "license": "GPL 3.0",
   "devDependencies": {
     "electron": "^8.2.1"
+  },
+  "dependencies": {
+    "request": "^2.88.2"
   }
 }
