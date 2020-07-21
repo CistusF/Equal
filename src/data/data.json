@@ -1,13 +1,65 @@
 {
-    "version" : "Alpha",
+    "version": "Alpha",
     "list": [
         {
             "quiz": "help",
-            "answer": "도움"
+            "answer": [
+                "도움"
+            ]
         },
         {
             "quiz": "win",
-            "answer": "승리"
+            "answer": [
+                "승리"
+            ]
+        },
+        {
+            "quiz": "star",
+            "answer": [
+                "별"
+            ]
+        },
+        {
+            "quiz": "victory",
+            "answer": [
+                "승리"
+            ]
+        },
+        {
+            "quiz": "night",
+            "answer": [
+                "밤"
+            ]
+        },
+        {
+            "quiz": "day",
+            "answer": [
+                "하루"
+            ]
+        },
+        {
+            "quiz": "love",
+            "answer": [
+                "사랑"
+            ]
+        },
+        {
+            "quiz": "shift",
+            "answer": [
+                "이동"
+            ]
+        },
+        {
+            "quiz": "lemon",
+            "answer": [
+                "레몬"
+            ]
+        },
+        {
+            "quiz": "apple",
+            "answer": [
+                "사과"
+            ]
         }
     ]
 }
