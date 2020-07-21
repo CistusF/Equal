@@ -50,6 +50,11 @@ body{
     border-radius: 50px;
   }
 
+.buttons:hover {
+    cursor: pointer;
+    background: linear-gradient(120deg,#16ffa6, #00a2ff,#16ffa6);
+}
+
 .bottom-text{
     color: rgb(114, 114, 114);
     margin-top:90px;
