@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="ingame.css">
+    <title>Equal!</title>
+    <script>
+        var list = []
+        var data = require('../data/data.json')
+        const { dialog } = require('electron').remote
+        let quiznumber;
+        random = () => {
+            return Math.floor((Math.random() * data.list.length - 1) + 1);
+        }
+        reload = () => {
+            load()
+        }
+        load = () => {
+            if (list.length == data.list.length) {
+                document.getElementById('playing').style.display = "none";
+                document.getElementById('end').style.display = "";
+                document.getElementById('event').innerText = 'Perfect'
+                document.getElementById('answer').innerText = `You Completed all 10 quizzes`
+                return;
+            }
+            quiznumber = random()
+            if (!list.includes(quiznumber)) {
+                document.getElementById('Q').innerText = data.list[quiznumber].quiz
+            } else {
+                reload()
+            }
+            document.getElementById('status').innerText = `${list.length}/${data.list.length}`
+        }
+        get = () => {
+            if (data.list[quiznumber].answer.includes(document.getElementById("A").value)) {
+                list.push(quiznumber)
+                document.getElementById("A").value = null
+                load()
+            } else {
+                document.getElementById('playing').style.display = "none";
+                document.getElementById('end').style.display = "";
+                document.getElementById('event').innerText = 'Wrong'
+                document.getElementById('answer').innerText = `The correct answer is : ${data.list[quiznumber].answer}\nYou Completed ${list.length} of ${data.list.length} quizzes`
+            }
+        }
+        press = (event) => {
+            if (event.keyCode == 13) {
+                get()
+            }
+        }
+    </script>
+</head>
+
+<body onload="load()">
+    <h1 class="Giventitle">
+        Equal!
+    </h1>
+    <section id="playing">
+        <label class="Giventitle2">Write the answer below.</label>
+        <h2 id="status"></h2>
+        <p>
+            <input type="text" style="width: 30vh;" class="Input" id="A" onkeypress="press(event)">
+        </p>
+        <p>
+            <labal class="Question" id="Q"><br>
+                Here will be the question!
+            </labal>
+        </p>
+        <p>
+            <input class="buttons" type="button" value="Submit" onclick="get()">
+        </p>
+    </section>
+    <section id="end" style="display: none;">
+        <p>
+        <h1 class="Giventitle2" id="event">Wrong</h1>
+        </p>
+        <p class="Question" id="answer">
+
+        </p>
+        <p>
+            <input class="buttons" type="button" value="Go to Main" onclick="window.location = './main.html'">
+        </p>
+    </section>
+</body>
+
+</html>
