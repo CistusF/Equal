@@ -17,9 +17,17 @@ else if you click Quit, you can close the game
 Main
 ![Main](https://github.com/vendettadelsangue/Equal/blob/master/image/main.png?raw=true)  
   
-Ingame
-![Ingame](https://github.com/vendettadelsangue/Equal/blob/master/image/ingame.png?raw=true)
+Settings(In Progress)
+![Settings](https://github.com/vendettadelsangue/Equal/blob/master/image/settings.png?raw=true)
   
+Version Check
+![Version_Check](https://github.com/vendettadelsangue/Equal/blob/master/image/version%20check.png?raw=true)  
+  
+In Game(In Progress)
+![In_Game](https://github.com/vendettadelsangue/Equal/blob/master/image/ingame.png?raw=true)
+  
+Words(In Progress)
+![Words](https://github.com/vendettadelsangue/Equal/blob/master/image/words.png?raw=true)  
   
 ## Developers
   
