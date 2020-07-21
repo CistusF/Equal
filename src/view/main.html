@@ -3,19 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Main menu</title>
+    <title>Main Menu</title>
     <link rel="stylesheet" href="mainstyle.css">
-    <script>
-        start = () => {
-            window.location = "./ingame.html"
-        }
-        quit = () => {
-            window.close()
-        }
-        openwfile = () => {
-            window.location = "./words.html"
-        }
-    </script>
 </head>
 
 <body>
@@ -27,9 +16,10 @@
             The game to be the WORDMASTER
         </div>
         <div>
-            <input class="buttons" id="start" type="button" value="Start" onclick="start()">
-            <input class="buttons" id="quit" type="button" value="Quit" onclick="quit()">
-            <input class="buttons" id="openwfile" type="button" value="Open Word File" onclick="openwfile()">
+            <input class="buttons" type="button" value="Start" onclick='window.location = "./ingame.html"'>
+            <input class="buttons" type="button" value="Open Word File" onclick='window.location = "./words.html"'>
+            <input class="buttons" type="button" value="Go to Settings" onclick='window.location = "./settings.html"'>
+            <input class="buttons" type="button" value="Quit" onclick="window.close()">
         </div>
         <div class="bottom-text">
             copyrightⓒ Vendetta & Cellary
