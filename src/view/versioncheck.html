@@ -12,37 +12,67 @@
         const dns = require('dns');
         const request = require('request');
         const fs = require('fs');
-        function check() {
-            dns.resolve('www.github.com', async function (err, addr) {
-                if (err) {
-                    alert("Network is not connected\nUpdates cannot be loaded\nSome words may be missing\nIf you want to update, please reboot after connecting to the network.\n\nSwitch to offline mode.");
-                    window.location = './main.html'
-                } else {
-                    const version = require('../data/data.json');
-                    document.getElementById('stat').innerText = "Check the program version..";
-                    await request.get('https://raw.githubusercontent.com/vendettadelsangue/Equal/master/src/data/data.json', async (err, res, req) => {
-                        if (err) return alert(`An error has occurred.\nPlease report the following to the administrator\n\n${err}`);
-                        if (JSON.parse(req).version == version.version) return window.location = './main.html';
-                        document.getElementById("stat").innerText = "Updating..";
-                        await fs.writeFileSync('./resources/app/data/data.json', req);
-                        alert('Succese to update');
-                        window.location = './main.html';
-                    })
-                };
-            });
+        end = () => {
+            document.getElementById('load').style.display = "none";
+            document.getElementById('finish').style.display = "";
+        }
+        error = (err) => {
+            alert(`An error has occurred.\nPlease report the following to the administrator\n\n${err}`);
+            window.close();
+        }
+        main = () => {
+            window.location = './main.html';
+        }
+        check = () => {
+            try {
+                dns.resolve('www.github.com', async function (err, addr) {
+                    if (err) {
+                        end()
+                        document.getElementsByClassName("stat")[1].innerText = "Network is not connected\nUpdates cannot be loaded\nSome words may be missing\nIf you want to update, please reboot after connecting to the network.\n\nSwitch to offline mode.";
+                        // alert("Network is not connected\nUpdates cannot be loaded\nSome words may be missing\nIf you want to update, please reboot after connecting to the network.\n\nSwitch to offline mode.");
+                    } else {
+                        const version = require('../data/data.json');
+                        document.getElementsByClassName("stat")[0].innerText = "Check the program version..";
+                        await request.get('https://raw.githubusercontent.com/vendettadelsangue/Equal/master/src/data/data.json', async (err, res, req) => {
+                            if (err) return error(err);
+                            if (JSON.parse(req).version == version.version) return window.location = './main.html';
+                            document.getElementsByClassName("stat")[0].innerText = "Updating..";
+                            await fs.writeFileSync('./resources/app/data/data.json', req);
+                            end()
+                            document.getElementsByClassName("stat")[1].innerText = "Succese to update!";
+                            // alert('Succese to update');
+                            // window.location = './main.html';
+                        });
+                    };
+                });
+            } catch (e) {
+                error(e);
+            };
         };
-        check()
+        check();
     </script>
-    <div class="Versionform">
-    <h1>
-        <p id="stat">
-            Checking the network...
-        </p>
-        <p>
-            Please wait
-        </p>
-    </h1>
-    </div>
+    <section id="load">
+        <div class="Versionform">
+            <h1>
+                <p class="stat">
+                    Checking the network...
+                </p>
+                <p>
+                    Please wait
+                </p>
+            </h1>
+        </div>
+    </section>
+    <section id="finish" style="display: none;">
+        <div class="Versionform">
+            <section>
+                <p class="stat">
+
+                </p>
+            </section>
+            <input type="button" class="buttons" onclick="main()" value="Go to main" />
+        </div>
+    </section>
 </body>
 
 </html>

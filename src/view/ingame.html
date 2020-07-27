@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="ingame.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equal!</title>
+    <link rel="stylesheet" href="ingame.css">
     <script>
         var list = []
         var data = require('../data/data.json')
@@ -26,7 +27,8 @@
             }
             quiznumber = random()
             if (!list.includes(quiznumber)) {
-                document.getElementById('Q').innerText = data.list[quiznumber].quiz
+                document.getElementById('Q').innerText = data.list[quiznumber].quiz;
+                document.getElementById('H').innerText = data.list[quiznumber].hint;
             } else {
                 reload()
             }
@@ -53,35 +55,57 @@
 </head>
 
 <body onload="load()">
-    <h1 class="Giventitle">
-        Equal!
-    </h1>
-    <section id="playing">
-        <label class="Giventitle2">Write the answer below.</label>
-        <h2 id="status"></h2>
-        <p>
-            <input type="text" style="width: 30vh;" class="Input" id="A" onkeypress="press(event)">
-        </p>
-        <p>
-            <labal class="Question" id="Q"><br>
-                Here will be the question!
-            </labal>
-        </p>
-        <p>
-            <input class="buttons" type="button" value="Submit" onclick="get()">
-        </p>
-    </section>
-    <section id="end" style="display: none;">
-        <p>
-        <h1 class="Giventitle2" id="event">Wrong</h1>
-        </p>
-        <p class="Question" id="answer">
+    <div class="Ingameform">
+        <h1 class="Giventitle">
+            Equal!
+        </h1>
+        <center>
+            <section id="playing">
+                <br>
+                <br>
+                <br>
+                <br>
+                <label class="Giventitle2">Write the answer below.</label>
+                <p>
+                    <input type="text" width="80" class="Input" id="A" onkeypress="press(event)">
+                </p>
+                <h2 id="status"></h2>
+                <br>
+                <p>
+                    <labal class="Question" id="Q"><br>
+                        Here will be the question!
+                    </labal>
+                </p>
+                <p>
+                <div class="Hint" id="H">
+                    Here will be the hint!
+                </div>
+                </p>
+                <br>
+                <p>
+                    <input class="buttons" type="button" value="Submit" onclick="get()">
+                </p>
+            </section>
+            <section id="end" style="display: none;">
+                <p>
+                <h1 class="Giventitle2" id="event">Wrong</h1>
+                <br>
+                <br>
+                </p>
+                <p class="Hint" id="answer">
 
-        </p>
-        <p>
-            <input class="buttons" type="button" value="Go to Main" onclick="window.location = './main.html'">
-        </p>
-    </section>
+                </p>
+                <p>
+                    <input class="buttons" type="button" value="Go to Main" onclick="window.location = './main.html'">
+                </p>
+                <br>
+                <br>
+            </section>
+        </center>
+        <div class="bottom-text">
+            copyrightⓒ Vendetta & Cellary
+        </div>
+    </div>
 </body>
 
 </html>
