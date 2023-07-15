@@ -15,6 +15,7 @@ body {
     align-items: center;
     color: #FFF;
     opacity: 1;
+    overflow: hidden;
 }
 
 .container {

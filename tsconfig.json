@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
+    "target": "ES2016",
+    "module": "CommonJS",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -12,6 +12,7 @@
     "src"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "types"
   ]
 }

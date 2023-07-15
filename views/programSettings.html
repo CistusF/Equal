@@ -83,13 +83,15 @@
             </div>
         </div>
         <div class="btns">
-            <p onclick="save()">save</p>
+            <p id="save">save</p>
             <p onclick="location.href ='./index.html'">cancle</p>
         </div>
     </div>
     <span class="footer">Copyright© CistusF</span>
-    <script type="text/javascript" src="../script/global.js"></script>
-    <script type="text/javascript" src="../script/programSettings.js"></script>
+    <script type="text/javascript">
+        require("../script/global");
+        require("../script/programSettings");
+    </script>
 </body>
 
 </html>

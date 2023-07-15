@@ -1,13 +1,29 @@
 {
   "name": "equal",
+  "description": "study with equal",
   "version": "0.0.1",
   "private": true,
   "main": "./main.js",
-  "dependencies": {
+  "author": {
+    "name": "CistusF"
+  },
+  "devDependencies": {
     "electron": "^25.3.0"
   },
   "scripts": {
     "start": "electron .",
-    "dev": "DEV_CONFIG=true electron ."
+    "dev": "DEV_CONFIG=true electron .",
+    "build:win-ia32": "electron-builder --win --ia32",
+    "build:win-x64": "electron-builder --win --x64"
+  },
+  "build": {
+    "productName": "Equal",
+    "asar": true,
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": true
+    }
   }
 }
