@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/programSettings.css">
+</head>
+
+<body>
+    <script>
+        const previewSound = () => {
+            const voiceSettings = document.querySelectorAll(".voice");
+            const speech = new SpeechSynthesisUtterance("This is sound");
+            console.log(voiceSettings[1].value)
+            const settings = {
+                lang: 'en-US',
+                volume: voiceSettings[0].value / 10,
+                rate: voiceSettings[1].value,
+                pitch: 1
+            };
+
+            for (const setting in settings) {
+                speech[setting] = settings[setting];
+            };
+
+            speechSynthesis.speak(speech);
+        }
+    </script>
+    <div class="container">
+        <span>Settings</span>
+        <div class="settings">
+            <div class="items">
+                <div class="item category">
+                    <p>General</p>
+                </div>
+                <div class="item">
+                    <p>Opacity</p>
+                    <div>
+                        <input id="opacity" type="range" min="5" max="10" value="10" class="general">
+                    </div>
+                </div>
+                <div class="item">
+                    <p>Timer</p>
+                    <div>
+                        <input id="timer" type="range" min="5" max="10" class="general">
+                    </div>
+                </div>
+                <div class="item">
+                    <p>Languages</p>
+                    <div>
+                        <select id="lang" name="langs" id="lang" class="general">
+                            <option value="en" selected>English</option>
+                            <option value="kr">한국어</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>Always on Top</p>
+                    <div>
+                        <input id="aot" type="checkbox" class="general">
+                    </div>
+                </div>
+                <div class="item category">
+                    <p>Voice</p>
+                </div>
+                <div class="item">
+                    <p>Sound</p>
+                    <div>
+                        <input id="sound" type="range" min="5" max="10" class="voice">
+                        <p onclick="previewSound()">preview</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>Rate</p>
+                    <div>
+                        <input id="rate" type="range" step="0.5" min="0.5" max="1.5" class="voice">
+                        <p onclick="previewSound()">preview</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <p onclick="save()">save</p>
+            <p onclick="location.href ='./index.html'">cancle</p>
+        </div>
+    </div>
+    <span class="footer">Copyright© CistusF</span>
+    <script type="text/javascript" src="../script/global.js"></script>
+    <script type="text/javascript" src="../script/programSettings.js"></script>
+</body>
+
+</html>
